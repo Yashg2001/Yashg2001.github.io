@@ -57,7 +57,61 @@
 	/*----------------------------------------
 		contact form validation
 	------------------------------------------*/
-	
+	function contactFormValidation() {
+		$(".contact-form").validate({
+		    rules: {
+		        name: {
+		            required: true
+		        },
+		        email: {
+		            required: true,
+		            email: true
+		        },
+		        subject: {
+		            required: true
+		        },
+		        message: {
+		            required: true
+		        }
+		    },
+		    messages: {
+		        name: {
+		            required: "Write your name here"
+		        },
+		        email: {
+		            required: "No email, no support"
+		        },
+		        subject: {
+		            required: "You have a reason to contact, write it here"
+		        },
+		        message: {
+		            required: "You have to write something to send this form"
+		        }
+		    },
+		    submitHandler: function(form) {
+		        $(form).ajaxSubmit({
+		            type: "POST",
+		            data: $(form).serialize(),
+		            url : "mail.php",
+		            success: function() {
+		                $(".contact-form").fadeTo( "slow", 1, function() {
+		                    $(".contact-form .msg-success").slideDown();
+		                });
+		                $(".contact-form").resetForm();
+		            },
+		            error: function() {
+		                $(".contact-form").fadeTo( "slow", 1, function() {
+		                    $(".contact-form .msg-failed").slideDown();
+		                });
+		            }
+		        });
+		    },
+		    errorPlacement: function(error, element) {
+		        element.after(error);
+		        error.hide().slideDown();
+		    }
+		}); 
+	}
 
 	/*----------------------------------------
 		Isotope Masonry
