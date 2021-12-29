@@ -1064,6 +1064,7 @@ textarea, label {
 }
 .contact-block .media-body {
   padding-left: 30px;
+  max-width: 140px;
 }
 .contact-block h4 {
   font-size: 18px;
