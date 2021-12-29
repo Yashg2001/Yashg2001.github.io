@@ -1,5 +1,5 @@
 <?php
-    $to = "yashguptaab66@gmail.com"; // replace this mail with yours
+    $to = "yash9785115297@gmail.com"; // replace this mail with yours
     $from = $_SERVER['PHP_SELF']." ".$_POST["email"];
     $name = $_POST["name"];
     $email = $_POST["email"];
