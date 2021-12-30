@@ -249,6 +249,14 @@
         <script src="js/jquery-validation.min.js"></script>
         <script src="js/form.min.js"></script>
         <script src="js/main.js"></script>     
+        <script>
+document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {//Alt+c, Alt+v will also be disabled sadly.
+                alert('Not allowed');
+            }
+            return false;
+    };
+        </script>
         
         <footer>
              Copyright &copy; theyashgupta.me
